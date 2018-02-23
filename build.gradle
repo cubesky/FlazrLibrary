@@ -1,0 +1,30 @@
+group 'org.flazr'
+version '1.0'
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'net.sourceforge.openutils', name: 'flazr', version: '0.7-snv20100505'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication){
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url 'D:\\Development\\WorkSpace\\GitSpace\\cubesky-mvn.github.io'
+        }
+    }
+}
